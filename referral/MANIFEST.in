@@ -1,0 +1,3 @@
+recursive-include referral/templates *
+recursive-include referral/static *
+recursive-include referral/migrations *

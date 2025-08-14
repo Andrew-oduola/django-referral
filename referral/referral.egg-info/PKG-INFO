@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: referral
+Version: 0.1
+Summary: A reusable Django referral system app
+Author: Andrew Oduola
+Author-email: andrewoduola@gmail.com
+Classifier: Framework :: Django
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
