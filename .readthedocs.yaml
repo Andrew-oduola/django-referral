@@ -15,6 +15,7 @@ python:
       path: .
       extra_requirements: [docs]
 
-# Set the environment variable directly
-environment:
-  DJANGO_SETTINGS_MODULE: "docs_settings"
+# Use setup commands instead of environment modification
+setup:
+  - echo "Setting up Django environment"
+  - export DJANGO_SETTINGS_MODULE=docs_settings
