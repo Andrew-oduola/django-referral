@@ -8,14 +8,29 @@ import sys
 import django
 from datetime import datetime
 
+
+# Add the project root to the Python path
+sys.path.insert(0, os.path.abspath('..'))
+
+# Set Django settings module for Read the Docs environment
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'docs_settings')
+
+try:
+    django.setup()
+    print("Django setup successful!")
+except Exception as e:
+    print(f"Warning: Django setup failed: {e}")
+    print("This may affect autodoc functionality for Django models")
+    # Continue anyway - some documentation will still work
+
+# ... rest of your conf.py configuration
 # -- Path Setup --------------------------------------------------------------
 # Add the project root directory to the Python path so Sphinx can find the 'referral' app.
-sys.path.insert(0, os.path.abspath('..'))
 
 # -- Django Setup ------------------------------------------------------------
 # This is critical for `autodoc` to successfully import Django models and utilities.
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'docs_settings')
-django.setup()
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'docs_settings')
+# django.setup()
 
 # -- Project Information -----------------------------------------------------
 project = 'Django Referral'
