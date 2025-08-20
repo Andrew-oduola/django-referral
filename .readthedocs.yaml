@@ -1,14 +1,14 @@
-# .readthedocs.yaml
 # Configuration for building documentation on Read the Docs
 # https://docs.readthedocs.io/en/stable/config-file/v2.html
 
 version: 2
 
-# Build with the latest Ubuntu environment
 build:
   os: ubuntu-22.04
   tools:
     python: "3.12"
+
+  # Jobs must be under the specific os configuration
   jobs:
     post_create_environment:
       # Configure the Django environment for Sphinx's autodoc
@@ -23,17 +23,10 @@ sphinx:
 python:
   install:
     - method: pip
-      path: .  # Install the package from the root directory
-      extra_requirements:
-        - docs  # This installs the 'docs' extra_requires from setup.py/pyproject.toml
-  system_packages: false # We don't need OS-level packages for a pure Python project
+      path: .
+      extra_requirements: [docs]  # Fixed syntax - use list format
 
-# Optionally build these formats (PDF is often skipped for code projects)
+# Optionally build these formats
 formats:
   - htmlzip
   # - pdf
-
-# Optionally, you can include a hook to run any custom commands
-# commands:
-#   pre_build:
-#     - some-custom-command
